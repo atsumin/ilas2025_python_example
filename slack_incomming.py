@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import requests
 import pprint
 
-server = 'https://hooks.slack.com/services/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'
+load_dotenv(".env")
+
+server = os.environ.get("WEBHOOK_URL")
 data = {'text': 'python request test: last_name'}
 
 r = requests.post(server, json=data)
